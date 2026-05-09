@@ -26,7 +26,7 @@
         /* Hero Section */
         .hero {
             background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), 
-                        url('https://images.unsplash.com/photo-1554744512-d6c603f27c54?auto=format&fit=crop&q=80&w=2000');
+                        url('https://images.unsplash.com/photo-1558444468-07089f62c647?auto=format&fit=crop&q=80&w=2000');
             background-size: cover;
             background-position: center;
             height: 80vh;
@@ -64,12 +64,6 @@
             box-shadow: 0 4px 15px rgba(0, 230, 118, 0.3);
         }
 
-        .cta-button:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 6px 20px rgba(0, 230, 118, 0.5);
-        }
-
-        /* Content Sections */
         .section {
             padding: 80px 10%;
             max-width: 1200px;
@@ -84,32 +78,54 @@
             font-size: 2rem;
         }
 
-        /* Business Clarity Cards */
         .grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 20px;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
         }
 
         .card {
             background: white;
-            padding: 30px;
             border-radius: 12px;
+            overflow: hidden;
             box-shadow: 0 10px 30px rgba(0,0,0,0.05);
             transition: transform 0.3s ease;
         }
 
         .card:hover { transform: translateY(-5px); }
 
+        .card img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+
+        .card-content {
+            padding: 25px;
+        }
+
         .card h3 { color: var(--danger-red); margin-top: 0; }
 
         /* AI Feature Section */
         .ai-container {
+            display: flex;
+            align-items: center;
             background-color: #e3f2fd;
             border-radius: 20px;
-            padding: 40px;
+            overflow: hidden;
             margin-top: 20px;
             border: 1px solid #bbdefb;
+        }
+
+        .ai-text {
+            padding: 40px;
+            flex: 1;
+        }
+
+        .ai-image {
+            flex: 1;
+            height: 400px;
+            background: url('https://images.unsplash.com/photo-1620712943543-bcc4628c71d0?auto=format&fit=crop&q=80&w=1000') center/cover;
         }
 
         .ai-tag {
@@ -140,12 +156,8 @@
             border-bottom: 1px solid #eee;
         }
 
-        .team-table th {
-            background-color: var(--primary-blue);
-            color: white;
-        }
+        .team-table th { background-color: var(--primary-blue); color: white; }
 
-        /* Footer */
         .footer {
             background-color: #1a1a1a;
             color: #999;
@@ -154,9 +166,9 @@
             margin-top: 50px;
         }
 
-        @media (max-width: 768px) {
-            .hero h1 { font-size: 2.5rem; }
-            .section { padding: 40px 5%; }
+        @media (max-width: 992px) {
+            .ai-container { flex-direction: column; }
+            .ai-image { width: 100%; height: 250px; }
         }
     </style>
 </head>
@@ -172,16 +184,25 @@
         <h2 class="section-title">ความชัดเจนของธุรกิจ</h2>
         <div class="grid">
             <div class="card">
-                <h3>ประเภทธุรกิจ</h3>
-                <p>บริการ Robotaxi รถแท็กซี่ไร้คนขับ 100% พลังงานไฟฟ้า เพื่อความยั่งยืนของเมือง</p>
+                <img src="https://images.unsplash.com/photo-1549317661-bd32c8ce0db2?auto=format&fit=crop&q=80&w=800" alt="Robotaxi">
+                <div class="card-content">
+                    <h3>บริการหลัก</h3>
+                    <p>บริการ Robotaxi รถแท็กซี่ไร้คนขับ 100% พลังงานไฟฟ้า เพื่อการเดินทางที่เงียบและไร้มลพิษ[cite: 1, 2]</p>
+                </div>
             </div>
             <div class="card">
-                <h3>กลุ่มลูกค้า</h3>
-                <p>คนวัยทำงานที่ต้องการความสะดวกสบาย และผู้ที่ต้องการความปลอดภัยสูงในยามค่ำคืน</p>
+                <img src="https://images.unsplash.com/photo-1449965408869-eaa3f722e40d?auto=format&fit=crop&q=80&w=800" alt="Tech Experience">
+                <div class="card-content">
+                    <h3>กลุ่มเป้าหมาย</h3>
+                    <p>คนวัยทำงานที่เน้นความสะดวกสบาย และต้องการประสบการณ์การเดินทางระดับพรีเมียม[cite: 1, 2]</p>
+                </div>
             </div>
             <div class="card">
-                <h3>จุดเด่น</h3>
-                <p>ระบุตำแหน่งแม่นยำระดับเซนติเมตร และระบบ AI ที่ตัดสินใจได้ชาญฉลาดกว่ามนุษย์</p>
+                <img src="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?auto=format&fit=crop&q=80&w=800" alt="Precision Mapping">
+                <div class="card-content">
+                    <h3>จุดเด่นของเทคโนโลยี</h3>
+                    <p>ระบุตำแหน่งแม่นยำระดับเซนติเมตรด้วย HD Mapping และเซนเซอร์รอบคัน 360 องศา[cite: 1, 2]</p>
+                </div>
             </div>
         </div>
     </section>
@@ -189,14 +210,17 @@
     <section class="section" style="background-color: #fff;">
         <h2 class="section-title">นวัตกรรม Generative AI</h2>
         <div class="ai-container">
-            <span class="ai-tag">Powered by Advanced AI</span>
-            <h2>มากกว่าแค่การรับส่ง แต่คือ "เพื่อนร่วมทาง"</h2>
-            <p>เราผสาน <strong>Generative AI</strong> เข้ากับระบบขับเคลื่อนอัตโนมัติเพื่อมอบสิ่งที่เหนือกว่า:</p>
-            <ul>
-                <li><strong>Dynamic Pathing:</strong> วิเคราะห์และสร้างเส้นทางใหม่ทันทีหากเกิดอุปสรรค</li>
-                <li><strong>In-Car AI Concierge:</strong> ระบบโต้ตอบอัจฉริยะที่ช่วยแนะนำสถานที่ หรือจัดการธุระให้คุณขณะเดินทาง</li>
-                <li><strong>Predictive Maintenance:</strong> AI วิเคราะห์สุขภาพรถล่วงหน้า เพื่อความปลอดภัยสูงสุด</li>
-            </ul>
+            <div class="ai-text">
+                <span class="ai-tag">Powered by Advanced AI</span>
+                <h2>อัจฉริยะที่ดูแลคุณทุกก้าว</h2>
+                <p>เราผสาน <strong>Generative AI</strong> เพื่อสร้างประสบการณ์ที่เหนือกว่าการเดินทางทั่วไป[cite: 2]:</p>
+                <ul>
+                    <li><strong>Dynamic Pathing:</strong> ปรับเปลี่ยนเส้นทางทันทีเมื่อเจออุปสรรค[cite: 2]</li>
+                    <li><strong>In-Car AI Concierge:</strong> ผู้ช่วยส่วนตัวในรถที่จัดการธุระให้คุณได้ทุกที่[cite: 2]</li>
+                    <li><strong>Predictive Maintenance:</strong> ตรวจสุขภาพรถล่วงหน้าเพื่อความปลอดภัย[cite: 2]</li>
+                </ul>
+            </div>
+            <div class="ai-image"></div>
         </div>
     </section>
 
@@ -210,23 +234,23 @@
                 </tr>
             </thead>
             <tbody>
-                <tr><td>นาย วุฒิไกร เอมทอง</td><td>Autonomous System Engineer (AI & Computer Vision)</td></tr>
-                <tr><td>นาย ประมวล กัญญานก</td><td>HD Mapping & Localization Specialist</td></tr>
-                <tr><td>นาย พิชาภพ สุขยืน</td><td>Hardware & Sensor Maintenance Engineer</td></tr>
-                <tr><td>นางสาว นิลปัทม์ บุญใส</td><td>Platform & App Developer (Backend)</td></tr>
-                <tr><td>นางสาว กัญญาณัฐ โสปัญหริ</td><td>Fleet Operations & Remote Monitor</td></tr>
-                <tr><td>นาย อลงกรณ์ เงินทอง</td><td>Data Analyst & Optimization</td></tr>
-                <tr><td>นางสาว ธัญชนก สมบูรณ์ประสิทธิ์</td><td>Safety Standards & Compliance Officer</td></tr>
-                <tr><td>นาย พงศกร อะโน</td><td>Business Strategy & Marketing</td></tr>
-                <tr><td>นางสาว นิภาวรรณ อิ่มบางแพ</td><td>Customer Experience Designer</td></tr>
-                <tr><td>นาย วิศรุต วงศ์คำอินทร์</td><td>Customer Support & Crisis Management</td></tr>
+                <tr><td>นาย วุฒิไกร เอมทอง</td><td>Autonomous System Engineer (AI & Computer Vision)[cite: 1]</td></tr>
+                <tr><td>นาย ประมวล กัญญานก</td><td>HD Mapping & Localization Specialist[cite: 1]</td></tr>
+                <tr><td>นาย พิชาภพ สุขยืน</td><td>Hardware & Sensor Maintenance Engineer[cite: 1]</td></tr>
+                <tr><td>นางสาว นิลปัทม์ บุญใส</td><td>Platform & App Developer (Backend)[cite: 1]</td></tr>
+                <tr><td>นางสาว กัญญาณัฐ โสปัญหริ</td><td>Fleet Operations & Remote Monitor[cite: 1]</td></tr>
+                <tr><td>นาย อลงกรณ์ เงินทอง</td><td>Data Analyst & Optimization[cite: 1]</td></tr>
+                <tr><td>นางสาว ธัญชนก สมบูรณ์ประสิทธิ์</td><td>Safety Standards & Compliance Officer[cite: 1]</td></tr>
+                <tr><td>นาย พงศกร อะโน</td><td>Business Strategy & Marketing[cite: 1]</td></tr>
+                <tr><td>นางสาว นิภาวรรณ อิ่มบางแพ</td><td>Customer Experience Designer[cite: 1]</td></tr>
+                <tr><td>นาย วิศรุต วงศ์คำอินทร์</td><td>Customer Support & Crisis Management[cite: 1]</td></tr>
             </tbody>
         </table>
     </section>
 
     <footer class="footer">
         <p>&copy; 2026 ZENITH MOVE. All Rights Reserved.</p>
-        <p>เพราะความปลอดภัยของคุณ คือภารกิจสูงสุดของเรา</p>
+        <p>เพราะความปลอดภัยของคุณ คือภารกิจสูงสุดของเรา[cite: 2]</p>
     </footer>
 
 </body>
