@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ZENITH MOVE - อนาคตแห่งการเดินทางไร้คนขับ</title>
+    <link href="https://fonts.googleapis.com/css2?family=Sarabun:wght@300;400;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-blue: #1a2a6c;
+            --accent-green: #00e676;
+            --danger-red: #b21f1f;
+            --light-bg: #f4f7f6;
+            --dark-text: #333;
+        }
+
+        body {
+            font-family: 'Sarabun', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: var(--light-bg);
+            color: var(--dark-text);
+            line-height: 1.6;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), 
+                        url('https://images.unsplash.com/photo-1554744512-d6c603f27c54?auto=format&fit=crop&q=80&w=2000');
+            background-size: cover;
+            background-position: center;
+            height: 80vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            color: white;
+            text-align: center;
+            padding: 0 20px;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            letter-spacing: 3px;
+            font-weight: 700;
+        }
+
+        .hero p {
+            font-size: 1.5rem;
+            margin-bottom: 2rem;
+            font-weight: 300;
+        }
+
+        .cta-button {
+            background-color: var(--accent-green);
+            color: #1a1a1a;
+            padding: 15px 35px;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: bold;
+            font-size: 1.2rem;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(0, 230, 118, 0.3);
+        }
+
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(0, 230, 118, 0.5);
+        }
+
+        /* Content Sections */
+        .section {
+            padding: 80px 10%;
+            max-width: 1200px;
+            margin: auto;
+        }
+
+        .section-title {
+            color: var(--primary-blue);
+            border-left: 6px solid var(--accent-green);
+            padding-left: 20px;
+            margin-bottom: 40px;
+            font-size: 2rem;
+        }
+
+        /* Business Clarity Cards */
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+        }
+
+        .card {
+            background: white;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+            transition: transform 0.3s ease;
+        }
+
+        .card:hover { transform: translateY(-5px); }
+
+        .card h3 { color: var(--danger-red); margin-top: 0; }
+
+        /* AI Feature Section */
+        .ai-container {
+            background-color: #e3f2fd;
+            border-radius: 20px;
+            padding: 40px;
+            margin-top: 20px;
+            border: 1px solid #bbdefb;
+        }
+
+        .ai-tag {
+            display: inline-block;
+            background-color: var(--primary-blue);
+            color: white;
+            padding: 5px 15px;
+            border-radius: 5px;
+            font-size: 0.8rem;
+            margin-bottom: 15px;
+            text-transform: uppercase;
+        }
+
+        /* Team Table */
+        .team-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 30px;
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+        }
+
+        .team-table th, .team-table td {
+            padding: 15px;
+            text-align: left;
+            border-bottom: 1px solid #eee;
+        }
+
+        .team-table th {
+            background-color: var(--primary-blue);
+            color: white;
+        }
+
+        /* Footer */
+        .footer {
+            background-color: #1a1a1a;
+            color: #999;
+            text-align: center;
+            padding: 50px 20px;
+            margin-top: 50px;
+        }
+
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 2.5rem; }
+            .section { padding: 40px 5%; }
+        }
+    </style>
+</head>
+<body>
+
+    <header class="hero">
+        <h1>ZENITH MOVE</h1>
+        <p>นิยามใหม่แห่งการเดินทางที่ปลอดภัย แม่นยำ และไร้คนขับ</p>
+        <a href="#" class="cta-button">จองการเดินทางของคุณ</a>
+    </header>
+
+    <section class="section">
+        <h2 class="section-title">ความชัดเจนของธุรกิจ</h2>
+        <div class="grid">
+            <div class="card">
+                <h3>ประเภทธุรกิจ</h3>
+                <p>บริการ Robotaxi รถแท็กซี่ไร้คนขับ 100% พลังงานไฟฟ้า เพื่อความยั่งยืนของเมือง</p>
+            </div>
+            <div class="card">
+                <h3>กลุ่มลูกค้า</h3>
+                <p>คนวัยทำงานที่ต้องการความสะดวกสบาย และผู้ที่ต้องการความปลอดภัยสูงในยามค่ำคืน</p>
+            </div>
+            <div class="card">
+                <h3>จุดเด่น</h3>
+                <p>ระบุตำแหน่งแม่นยำระดับเซนติเมตร และระบบ AI ที่ตัดสินใจได้ชาญฉลาดกว่ามนุษย์</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="section" style="background-color: #fff;">
+        <h2 class="section-title">นวัตกรรม Generative AI</h2>
+        <div class="ai-container">
+            <span class="ai-tag">Powered by Advanced AI</span>
+            <h2>มากกว่าแค่การรับส่ง แต่คือ "เพื่อนร่วมทาง"</h2>
+            <p>เราผสาน <strong>Generative AI</strong> เข้ากับระบบขับเคลื่อนอัตโนมัติเพื่อมอบสิ่งที่เหนือกว่า:</p>
+            <ul>
+                <li><strong>Dynamic Pathing:</strong> วิเคราะห์และสร้างเส้นทางใหม่ทันทีหากเกิดอุปสรรค</li>
+                <li><strong>In-Car AI Concierge:</strong> ระบบโต้ตอบอัจฉริยะที่ช่วยแนะนำสถานที่ หรือจัดการธุระให้คุณขณะเดินทาง</li>
+                <li><strong>Predictive Maintenance:</strong> AI วิเคราะห์สุขภาพรถล่วงหน้า เพื่อความปลอดภัยสูงสุด</li>
+            </ul>
+        </div>
+    </section>
+
+    <section class="section">
+        <h2 class="section-title">ทีมผู้เชี่ยวชาญเบื้องหลัง</h2>
+        <table class="team-table">
+            <thead>
+                <tr>
+                    <th>ชื่อ-นามสกุล</th>
+                    <th>ตำแหน่งและความรับผิดชอบ</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr><td>นาย วุฒิไกร เอมทอง</td><td>Autonomous System Engineer (AI & Computer Vision)</td></tr>
+                <tr><td>นาย ประมวล กัญญานก</td><td>HD Mapping & Localization Specialist</td></tr>
+                <tr><td>นาย พิชาภพ สุขยืน</td><td>Hardware & Sensor Maintenance Engineer</td></tr>
+                <tr><td>นางสาว นิลปัทม์ บุญใส</td><td>Platform & App Developer (Backend)</td></tr>
+                <tr><td>นางสาว กัญญาณัฐ โสปัญหริ</td><td>Fleet Operations & Remote Monitor</td></tr>
+                <tr><td>นาย อลงกรณ์ เงินทอง</td><td>Data Analyst & Optimization</td></tr>
+                <tr><td>นางสาว ธัญชนก สมบูรณ์ประสิทธิ์</td><td>Safety Standards & Compliance Officer</td></tr>
+                <tr><td>นาย พงศกร อะโน</td><td>Business Strategy & Marketing</td></tr>
+                <tr><td>นางสาว นิภาวรรณ อิ่มบางแพ</td><td>Customer Experience Designer</td></tr>
+                <tr><td>นาย วิศรุต วงศ์คำอินทร์</td><td>Customer Support & Crisis Management</td></tr>
+            </tbody>
+        </table>
+    </section>
+
+    <footer class="footer">
+        <p>&copy; 2026 ZENITH MOVE. All Rights Reserved.</p>
+        <p>เพราะความปลอดภัยของคุณ คือภารกิจสูงสุดของเรา</p>
+    </footer>
+
+</body>
+</html>
