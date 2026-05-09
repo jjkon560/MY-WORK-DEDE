@@ -82,3 +82,208 @@
             justify-content: center;
             align-items: center;
             text-align: center;
+            color: white;
+            padding: 0 20px;
+        }
+
+        #home h1 { font-size: 4rem; margin-bottom: 1rem; }
+        #home p { font-size: 1.5rem; max-width: 800px; margin-bottom: 2rem; font-weight: 300; }
+
+        .btn-group { display: flex; gap: 20px; }
+
+        .btn-primary {
+            background-color: var(--accent-green);
+            color: var(--primary-blue);
+            padding: 15px 40px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: 0.3s;
+        }
+
+        .btn-secondary {
+            border: 2px solid var(--white);
+            color: var(--white);
+            padding: 13px 40px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: 0.3s;
+        }
+
+        .btn-primary:hover { background-color: #059669; transform: translateY(-3px); }
+        .btn-secondary:hover { background-color: var(--white); color: var(--primary-blue); }
+
+        /* Sections Layout */
+        section { padding: 100px 10%; }
+
+        .section-header { text-align: center; margin-bottom: 60px; }
+        .section-header h2 { font-size: 2.5rem; color: var(--primary-blue); margin-bottom: 10px; }
+        .underline { width: 80px; height: 4px; background: var(--accent-green); margin: auto; }
+
+        /* Business Layout (Cards) */
+        .grid-3 {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .feature-card {
+            background: var(--white);
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+            transition: 0.3s;
+        }
+
+        .feature-card img { width: 100%; height: 250px; object-fit: cover; }
+        .card-body { padding: 25px; }
+        .feature-card h3 { color: var(--soft-blue); margin-top: 0; }
+
+        /* AI Side-by-Side */
+        .ai-split {
+            display: flex;
+            align-items: center;
+            gap: 50px;
+            background: var(--white);
+            border-radius: 20px;
+            overflow: hidden;
+        }
+
+        .ai-content { flex: 1; padding: 50px; }
+        .ai-image { flex: 1; min-height: 500px; background: url('https://images.unsplash.com/photo-1620712943543-bcc4628c71d0?auto=format&fit=crop&q=80&w=1000') center/cover; }
+
+        /* Team Section */
+        .team-box {
+            background: var(--primary-blue);
+            color: var(--white);
+            padding: 50px;
+            border-radius: 20px;
+        }
+
+        .team-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+        }
+
+        .member { border-bottom: 1px solid #334155; padding-bottom: 10px; }
+        .member .name { font-weight: bold; color: var(--accent-green); }
+        .member .role { font-size: 0.85rem; color: #94a3b8; }
+
+        footer {
+            background: #020617;
+            color: #64748b;
+            padding: 40px 10%;
+            text-align: center;
+        }
+
+        @media (max-width: 768px) {
+            nav ul { display: none; }
+            #home h1 { font-size: 2.5rem; }
+            .ai-split { flex-direction: column; }
+            .ai-image { min-height: 300px; width: 100%; }
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <a href="#home" class="logo">ZENITH<span>MOVE</span></a>
+        <ul>
+            <li><a href="#home">หน้าแรก</a></li>
+            <li><a href="#business">ธุรกิจของเรา</a></li>
+            <li><a href="#technology">เทคโนโลยี AI</a></li>
+            <li><a href="#team">ทีมงาน</a></li>
+        </ul>
+        <a href="#contact" class="btn-primary" style="padding: 10px 20px;">จองเลย</a>
+    </nav>
+
+    <header id="home">
+        <h1>ZENITH MOVE</h1>
+        <p>ยกระดับการเดินทางในเมืองด้วยระบบ Robotaxi ไร้คนขับเต็มรูปแบบ ปลอดภัย แม่นยำ และเป็นมิตรต่อสิ่งแวดล้อม</p>
+        <div class="btn-group">
+            <a href="#business" class="btn-primary">เริ่มต้นใช้งาน</a>
+            <a href="#technology" class="btn-secondary">ดูเทคโนโลยีของเรา</a>
+        </div>
+    </header>
+
+    <section id="business">
+        <div class="section-header">
+            <h2>บริการอัจฉริยะ</h2>
+            <div class="underline"></div>
+        </div>
+        <div class="grid-3">
+            <div class="feature-card">
+                <img src="https://images.unsplash.com/photo-1549317661-bd32c8ce0db2?auto=format&fit=crop&q=80&w=800" alt="EV Car">
+                <div class="card-body">
+                    <h3>100% Electric Robotaxi</h3>
+                    <p>บริการรถยนต์ไฟฟ้าไร้คนขับที่ช่วยลดมลพิษในเมือง พร้อมความสะอาดและเป็นส่วนตัวสูงสุด</p>
+                </div>
+            </div>
+            <div class="feature-card">
+                <img src="https://images.unsplash.com/photo-1449965408869-eaa3f722e40d?auto=format&fit=crop&q=80&w=800" alt="App Usage">
+                <div class="card-body">
+                    <h3>Urban Commuters</h3>
+                    <p>เจาะกลุ่มคนทำงานและนักท่องเที่ยวที่ต้องการความปลอดภัยและการเดินทางที่คาดการณ์เวลาได้</p>
+                </div>
+            </div>
+            <div class="feature-card">
+                <img src="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?auto=format&fit=crop&q=80&w=800" alt="Mapping">
+                <div class="card-body">
+                    <h3>HD Mapping Precision</h3>
+                    <p>เหนือกว่าด้วยการระบุตำแหน่งระดับเซนติเมตร ทำให้รถรู้ตำแหน่งของตัวเองในเลนถนนตลอดเวลา</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="technology" style="background-color: #f1f5f9;">
+        <div class="section-header">
+            <h2>Generative AI Integration</h2>
+            <div class="underline"></div>
+        </div>
+        <div class="ai-split">
+            <div class="ai-content">
+                <p style="color: var(--accent-green); font-weight: bold; text-transform: uppercase;">Next-Gen Mobility</p>
+                <h3>การเดินทางที่มีชีวิตด้วย AI</h3>
+                <p>เราไม่ใช่แค่รถที่วิ่งได้เอง แต่เราคือ <strong>Smart Companion</strong> บนท้องถนน:</p>
+                <ul>
+                    <li><strong>Adaptive Learning:</strong> AI เรียนรู้พฤติกรรมการขับขี่รอบข้างเพื่อความปลอดภัยสูงสุด</li>
+                    <li><strong>GenAI Concierge:</strong> ระบบโต้ตอบเสียงอัจฉริยะภายในรถที่ช่วยแนะนำสถานที่ หรือวางแผนงานให้คุณขณะเดินทาง</li>
+                    <li><strong>Predictive Fleet Management:</strong> วิเคราะห์ความต้องการล่วงหน้าเพื่อส่งรถไปสแตนด์บายก่อนที่คุณจะเรียก</li>
+                </ul>
+                <br>
+                <a href="#" class="btn-primary">เรียนรู้เชิงลึก</a>
+            </div>
+            <div class="ai-image"></div>
+        </div>
+    </section>
+
+    <section id="team">
+        <div class="section-header">
+            <h2>ทีมงานผู้เชี่ยวชาญ</h2>
+            <div class="underline"></div>
+        </div>
+        <div class="team-box">
+            <div class="team-list">
+                <div class="member"><div class="name">วุฒิไกร เอมทอง</div><div class="role">Autonomous Engineer</div></div>
+                <div class="member"><div class="name">ประมวล กัญญานก</div><div class="role">HD Mapping Spec.</div></div>
+                <div class="member"><div class="name">พิชาภพ สุขยืน</div><div class="role">Sensor Maintenance</div></div>
+                <div class="member"><div class="name">นิลปัทม์ บุญใส</div><div class="role">App Developer</div></div>
+                <div class="member"><div class="name">กัญญาณัฐ โสปัญหริ</div><div class="role">Fleet Operations</div></div>
+                <div class="member"><div class="name">อลงกรณ์ เงินทอง</div><div class="role">Data Analyst</div></div>
+                <div class="member"><div class="name">ธัญชนก สมบูรณ์ประสิทธิ์</div><div class="role">Safety Officer</div></div>
+                <div class="member"><div class="name">พงศกร อะโน</div><div class="role">Business Strategy</div></div>
+                <div class="member"><div class="name">นิภาวรรณ อิ่มบางแพ</div><div class="role">UX Designer</div></div>
+                <div class="member"><div class="name">วิศรุต วงศ์คำอินทร์</div><div class="role">Crisis Management</div></div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2026 ZENITH MOVE Technology. ขับเคลื่อนสู่อนาคตด้วยความปลอดภัย</p>
+    </footer>
+
+</body>
+</html>
