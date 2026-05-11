@@ -3,173 +3,213 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ZENITH MOVE - Team Portfolio</title>
+    <title>ZENITH MOVE - Experience the Future</title>
     <link href="https://fonts.googleapis.com/css2?family=Sarabun:wght@300;400;700&display=swap" rel="stylesheet">
     <style>
         :root {
             --main-dark: #0f172a;
-            --link-blue: #0044cc; /* สีน้ำเงิน Link มาตรฐาน */
             --accent-green: #10b981;
+            --ui-blue: #2563eb; /* ปรับสีน้ำเงินให้ชัดขึ้นสำหรับ Link */
             --bg-light: #f8fafc;
         }
 
-        body { font-family: 'Sarabun', sans-serif; margin: 0; background: var(--bg-light); padding: 50px 10%; }
-        
+        * { box-sizing: border-box; scroll-behavior: smooth; }
+        body { font-family: 'Sarabun', sans-serif; margin: 0; background: var(--bg-light); color: #334155; }
+
+        /* Navigation */
+        nav {
+            background: rgba(15, 23, 42, 0.9);
+            backdrop-filter: blur(10px);
+            padding: 15px 10%;
+            position: fixed; width: 100%; top: 0; z-index: 1000;
+            display: flex; justify-content: space-between; align-items: center;
+        }
+        .logo { color: white; font-weight: bold; font-size: 1.5rem; text-decoration: none; }
+        .logo span { color: var(--accent-green); }
+        .nav-links a { color: #94a3b8; text-decoration: none; margin-left: 25px; transition: 0.3s; font-size: 0.9rem; }
+
+        /* Hero */
+        .hero {
+            height: 60vh;
+            background: linear-gradient(rgba(15, 23, 42, 0.8), rgba(15, 23, 42, 0.8)), 
+                        url('https://images.unsplash.com/photo-1558444468-07089f62c647?auto=format&fit=crop&q=80&w=2000');
+            background-size: cover; background-position: center;
+            display: flex; flex-direction: column; justify-content: center; align-items: center;
+            color: white; text-align: center; padding: 0 20px;
+        }
+
+        .container { padding: 80px 10%; }
         .section-title { text-align: center; margin-bottom: 50px; }
         .section-title h2 { font-size: 2.5rem; color: var(--main-dark); }
 
+        /* Team Section ปรับปรุงใหม่ */
         .team-mosaic {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
             gap: 25px;
         }
 
-        /* กล่องการ์ด */
+        /* กล่องบุคลากรที่ทำหน้าที่เป็นปุ่มกด */
         .member-card {
             background: white;
             padding: 25px;
             border-radius: 15px;
-            border: 2px solid #e2e8f0;
+            border: 1px solid #e2e8f0;
+            border-bottom: 5px solid var(--ui-blue);
+            text-decoration: none !important; /* บังคับลบเส้นใต้ */
             display: block;
-            text-decoration: none; /* ลบเส้นใต้ของทั้งกล่อง */
-            transition: 0.3s;
-            color: #334155;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            position: relative;
         }
 
         .member-card:hover {
-            transform: translateY(-5px);
-            border-color: var(--accent-green);
-            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+            border-bottom-color: var(--accent-green);
         }
 
-        /* ส่วนของชื่อที่เป็น Hyperlink ชัดเจน */
-        .member-name {
+        .member-card .name {
             font-weight: bold;
-            font-size: 1.2rem;
-            color: var(--link-blue); /* บังคับสีน้ำเงิน */
-            text-decoration: underline; /* บังคับขีดเส้นใต้ */
             display: block;
+            color: var(--ui-blue); /* สีน้ำเงินเพื่อให้รู้ว่าเป็นลิงก์ */
+            font-size: 1.2rem;
             margin-bottom: 5px;
+            text-decoration: underline; /* ขีดเส้นใต้ที่ชื่อเพื่อให้ชัดเจน */
         }
 
-        .member-id {
+        .member-card .student-id {
             font-size: 0.85rem;
             color: #64748b;
             display: block;
             margin-bottom: 10px;
         }
 
-        .member-role {
+        .member-card .role {
             font-size: 0.9rem;
-            display: block;
+            color: #475569;
+            line-height: 1.4;
             margin-bottom: 15px;
+            display: block;
         }
 
-        /* ปุ่มกดจำลอง */
-        .visit-btn {
-            background: #0044cc;
-            color: white;
-            padding: 8px 15px;
-            border-radius: 6px;
-            font-size: 0.8rem;
-            font-weight: bold;
+        /* ปุ่มหลอกด้านล่างการ์ดเพื่อให้คนรู้ว่าต้องคลิก */
+        .btn-visit {
             display: inline-block;
+            background: var(--ui-blue);
+            color: white;
+            padding: 5px 15px;
+            border-radius: 5px;
+            font-size: 0.75rem;
+            font-weight: bold;
+            text-transform: uppercase;
         }
 
-        .member-card:hover .visit-btn {
+        .member-card:hover .btn-visit {
             background: var(--accent-green);
         }
+
+        footer { text-align: center; padding: 40px; background: #020617; color: #475569; }
     </style>
 </head>
 <body>
 
-    <section id="team" class="container" style="padding: 80px 10%; background-color: #f8fafc;">
-    <div class="section-title" style="text-align: center; margin-bottom: 50px;">
-        <h2 style="font-size: 2.5rem; color: #0f172a;">เบื้องหลังความสำเร็จ</h2>
-        <p>ทีมผู้เชี่ยวชาญ 10 ท่าน (กรุณาคลิกที่ชื่อสีน้ำเงินเพื่อเปิดเว็บไซต์)</p>
-    </div>
+    <nav>
+        <a href="#" class="logo">ZENITH<span>MOVE</span></a>
+        <div class="nav-links">
+            <a href="#team">ทีมงาน</a>
+        </div>
+    </nav>
 
-    <div class="team-mosaic" style="display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 20px;">
-        
-        <div class="member-card" style="background: white; padding: 25px; border-radius: 15px; border: 1px solid #e2e8f0; border-bottom: 5px solid #3b82f6;">
-            <a href="https://teazaza649-cpu.github.io/wutthik-huh/" target="_blank" style="color: #0000FF; text-decoration: underline; font-weight: bold; font-size: 1.2rem; display: block; margin-bottom: 5px;">
-                คุณวุฒิไกร เอมทอง 🔗
-            </a>
-            <span style="font-size: 0.8rem; color: #64748b; display: block; margin-bottom: 10px;">6650100838</span>
-            <span style="font-size: 0.9rem; color: #334155;">Autonomous System Engineer</span>
+    <header class="hero">
+        <h1>TEAM EXPERTS</h1>
+        <p>คลิกที่การ์ดเพื่อเยี่ยมชมเว็บไซต์พอร์ตโฟลิโอของทีมงานแต่ละท่าน</p>
+    </header>
+
+    <section id="team" class="container">
+        <div class="section-title">
+            <h2>เบื้องหลังความสำเร็จ</h2>
+            <p>กรุณาคลิกที่ชื่อหรือปุ่ม [ VISIT ] เพื่อดูรายละเอียด</p>
         </div>
 
-        <div class="member-card" style="background: white; padding: 25px; border-radius: 15px; border: 1px solid #e2e8f0; border-bottom: 5px solid #3b82f6;">
-            <a href="https://apothanchanok.github.io/Pramuan-Kanyanok/" target="_blank" style="color: #0000FF; text-decoration: underline; font-weight: bold; font-size: 1.2rem; display: block; margin-bottom: 5px;">
-                คุณประมวล กัญญานก 🔗
+        <div class="team-mosaic">
+            
+            <a href="https://teazaza649-cpu.github.io/wutthik-huh/" target="_blank" class="member-card">
+                <span class="name">คุณวุฒิไกร เอมทอง</span>
+                <span class="student-id">รหัสนักศึกษา: 6650100838</span>
+                <span class="role">Autonomous System Engineer</span>
+                <span class="btn-visit">VISIT WEBSITE →</span>
             </a>
-            <span style="font-size: 0.8rem; color: #64748b; display: block; margin-bottom: 10px;">6650101397</span>
-            <span style="font-size: 0.9rem; color: #334155;">HD Mapping Specialist</span>
-        </div>
 
-        <div class="member-card" style="background: white; padding: 25px; border-radius: 15px; border: 1px solid #e2e8f0; border-bottom: 5px solid #3b82f6;">
-            <a href="https://teazaza649-cpu.github.io/wutthik-h/" target="_blank" style="color: #0000FF; text-decoration: underline; font-weight: bold; font-size: 1.2rem; display: block; margin-bottom: 5px;">
-                คุณพิชาภพ สุขยืน 🔗
+            <a href="https://apothanchanok.github.io/Pramuan-Kanyanok/" target="_blank" class="member-card">
+                <span class="name">คุณประมวล กัญญานก</span>
+                <span class="student-id">รหัสนักศึกษา: 6650101397</span>
+                <span class="role">HD Mapping & Localization Specialist</span>
+                <span class="btn-visit">VISIT WEBSITE →</span>
             </a>
-            <span style="font-size: 0.8rem; color: #64748b; display: block; margin-bottom: 10px;">6650101427</span>
-            <span style="font-size: 0.9rem; color: #334155;">Hardware Maintenance Engineer</span>
-        </div>
 
-        <div class="member-card" style="background: white; padding: 25px; border-radius: 15px; border: 1px solid #e2e8f0; border-bottom: 5px solid #3b82f6;">
-            <a href="https://jjkon560.github.io/ThisIsMyNinrapatt/" target="_blank" style="color: #0000FF; text-decoration: underline; font-weight: bold; font-size: 1.2rem; display: block; margin-bottom: 5px;">
-                คุณนิลปัทม์ บุญใส 🔗
+            <a href="https://teazaza649-cpu.github.io/wutthik-h/" target="_blank" class="member-card">
+                <span class="name">คุณพิชาภพ สุขยืน</span>
+                <span class="student-id">รหัสนักศึกษา: 6650101427</span>
+                <span class="role">Hardware & Sensor Maintenance Engineer</span>
+                <span class="btn-visit">VISIT WEBSITE →</span>
             </a>
-            <span style="font-size: 0.8rem; color: #64748b; display: block; margin-bottom: 10px;">6650101389</span>
-            <span style="font-size: 0.9rem; color: #334155;">Platform & App Developer</span>
-        </div>
 
-        <div class="member-card" style="background: white; padding: 25px; border-radius: 15px; border: 1px solid #e2e8f0; border-bottom: 5px solid #3b82f6;">
-            <a href="https://nnkanya.github.io/ThisIsMyLanding-/" target="_blank" style="color: #0000FF; text-decoration: underline; font-weight: bold; font-size: 1.2rem; display: block; margin-bottom: 5px;">
-                คุณกัญญาณัฐ โสปัญหริ 🔗
+            <a href="https://jjkon560.github.io/ThisIsMyNinrapatt/" target="_blank" class="member-card">
+                <span class="name">คุณนิลปัทม์ บุญใส</span>
+                <span class="student-id">รหัสนักศึกษา: 6650101389</span>
+                <span class="role">Platform & App Developer</span>
+                <span class="btn-visit">VISIT WEBSITE →</span>
             </a>
-            <span style="font-size: 0.8rem; color: #64748b; display: block; margin-bottom: 10px;">6550100161</span>
-            <span style="font-size: 0.9rem; color: #334155;">Fleet Operations Manager</span>
-        </div>
 
-        <div class="member-card" style="background: white; padding: 25px; border-radius: 15px; border: 1px solid #e2e8f0; border-bottom: 5px solid #3b82f6;">
-            <a href="https://jjkon560.github.io/ThisIsMyLanding-Page/" target="_blank" style="color: #0000FF; text-decoration: underline; font-weight: bold; font-size: 1.2rem; display: block; margin-bottom: 5px;">
-                คุณอลงกรณ์ เงินทอง 🔗
+            <a href="https://nnkanya.github.io/ThisIsMyLanding-/" target="_blank" class="member-card">
+                <span class="name">คุณกัญญาณัฐ โสปัญหริ</span>
+                <span class="student-id">รหัสนักศึกษา: 6550100161</span>
+                <span class="role">Fleet Operations & Remote Monitor</span>
+                <span class="btn-visit">VISIT WEBSITE →</span>
             </a>
-            <span style="font-size: 0.8rem; color: #64748b; display: block; margin-bottom: 10px;">6650101281</span>
-            <span style="font-size: 0.9rem; color: #334155;">Data Analyst & Optimization</span>
-        </div>
 
-        <div class="member-card" style="background: white; padding: 25px; border-radius: 15px; border: 1px solid #e2e8f0; border-bottom: 5px solid #3b82f6;">
-            <a href="https://apothanchanok.github.io/Thanchanok/" target="_blank" style="color: #0000FF; text-decoration: underline; font-weight: bold; font-size: 1.2rem; display: block; margin-bottom: 5px;">
-                คุณธัญชนก สมบูรณ์ประสิทธิ์ 🔗
+            <a href="https://jjkon560.github.io/ThisIsMyLanding-Page/" target="_blank" class="member-card">
+                <span class="name">คุณอลงกรณ์ เงินทอง</span>
+                <span class="student-id">รหัสนักศึกษา: 6650101281</span>
+                <span class="role">Data Analyst & Optimization</span>
+                <span class="btn-visit">VISIT WEBSITE →</span>
             </a>
-            <span style="font-size: 0.8rem; color: #64748b; display: block; margin-bottom: 10px;">6650100358</span>
-            <span style="font-size: 0.9rem; color: #334155;">Safety Standards Officer</span>
-        </div>
 
-        <div class="member-card" style="background: white; padding: 25px; border-radius: 15px; border: 1px solid #e2e8f0; border-bottom: 5px solid #3b82f6;">
-            <a href="https://px30253-wq.github.io/phongsakorn.github.io/" target="_blank" style="color: #0000FF; text-decoration: underline; font-weight: bold; font-size: 1.2rem; display: block; margin-bottom: 5px;">
-                คุณพงศกร อะโน 🔗
+            <a href="https://apothanchanok.github.io/Thanchanok/" target="_blank" class="member-card">
+                <span class="name">คุณธัญชนก สมบูรณ์ประสิทธิ์</span>
+                <span class="student-id">รหัสนักศึกษา: 6650100358</span>
+                <span class="role">Safety Standards & Compliance Officer</span>
+                <span class="btn-visit">VISIT WEBSITE →</span>
             </a>
-            <span style="font-size: 0.8rem; color: #64748b; display: block; margin-bottom: 10px;">6650100781</span>
-            <span style="font-size: 0.9rem; color: #334155;">Business Strategy & Marketing</span>
-        </div>
 
-        <div class="member-card" style="background: white; padding: 25px; border-radius: 15px; border: 1px solid #e2e8f0; border-bottom: 5px solid #3b82f6;">
-            <a href="https://teazaza649-cpu.github.io/oo/" target="_blank" style="color: #0000FF; text-decoration: underline; font-weight: bold; font-size: 1.2rem; display: block; margin-bottom: 5px;">
-                คุณนิภาวรรณ อิ่มบางแพ 🔗
+            <a href="https://px30253-wq.github.io/phongsakorn.github.io/" target="_blank" class="member-card">
+                <span class="name">คุณพงศกร อะโน</span>
+                <span class="student-id">รหัสนักศึกษา: 6650100781</span>
+                <span class="role">Business Strategy & Marketing</span>
+                <span class="btn-visit">VISIT WEBSITE →</span>
             </a>
-            <span style="font-size: 0.8rem; color: #64748b; display: block; margin-bottom: 10px;">6650100633</span>
-            <span style="font-size: 0.9rem; color: #334155;">Customer Experience Designer</span>
-        </div>
 
-        <div class="member-card" style="background: white; padding: 25px; border-radius: 15px; border: 1px solid #e2e8f0; border-bottom: 5px solid #3b82f6;">
-            <a href="https://jjkon560.github.io/ThisIsMyLanding-/" target="_blank" style="color: #0000FF; text-decoration: underline; font-weight: bold; font-size: 1.2rem; display: block; margin-bottom: 5px;">
-                คุณวิศรุต วงศ์คำอินทร์ 🔗
+            <a href="https://teazaza649-cpu.github.io/oo/" target="_blank" class="member-card">
+                <span class="name">คุณนิภาวรรณ อิ่มบางแพ</span>
+                <span class="student-id">รหัสนักศึกษา: 6650100633</span>
+                <span class="role">Customer Experience Designer</span>
+                <span class="btn-visit">VISIT WEBSITE →</span>
             </a>
-            <span style="font-size: 0.8rem; color: #64748b; display: block; margin-bottom: 10px;">6650100820</span>
-            <span style="font-size: 0.9rem; color: #334155;">Crisis Management</span>
-        </div>
 
-    </div>
-</section>
+            <a href="https://jjkon560.github.io/ThisIsMyLanding-/" target="_blank" class="member-card">
+                <span class="name">คุณวิศรุต วงศ์คำอินทร์</span>
+                <span class="student-id">รหัสนักศึกษา: 6650100820</span>
+                <span class="role">Customer Support & Crisis Management</span>
+                <span class="btn-visit">VISIT WEBSITE →</span>
+            </a>
+
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2026 ZENITH MOVE - นิยามใหม่แห่งการเดินทางที่ปลอดภัย</p>
+    </footer>
+
+</body>
+</html>
